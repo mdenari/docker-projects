@@ -7,10 +7,7 @@ const cors = require('cors')
 
 // Database
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb://db/mydb') // acesso ao banco na porta 27017
-
-//Teste
-//server.get('/', (req,res,next) => res.send('Backend'))
+mongoose.connect('mongodb://db/mydb')
 
 // Middlewares
 server.use(bodyParser.urlencoded({extended:true}))
