@@ -10,9 +10,7 @@ mongoose.Promise = global.Promise
 mongoose.connect('mongodb://db/mydb') // acesso ao banco na porta 27017
 
 //Teste
-server.get('/', (req,res,next) => res.send('Backend'))
-
-/*
+//server.get('/', (req,res,next) => res.send('Backend'))
 
 // Middlewares
 server.use(bodyParser.urlencoded({extended:true}))
@@ -30,7 +28,6 @@ Client.updateOptions({new: true, runValidators: true})
 
 // Routes
 Client.register(server, '/clients')
-*/
 
 // Start Server
 server.listen(3000)
