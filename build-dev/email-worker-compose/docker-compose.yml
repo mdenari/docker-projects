@@ -1,15 +1,21 @@
 version: '3'
 volumes:
-    dados:
+  dados:
 services:
     db:
-        image: postgres:9.6
-        environment:
-            - POSTGRES_HOST_AUTH_METHOD=trust
+        image: postgres:9.6 
         volumes:
             #Volume dos dados
             - dados:/var/lib/postgresql/data
             #Scripts
             - ./scripts:/scripts
-            - ./scripts/init.sql:docker-entrypoint-initdb.d/init.sql  # inicializa a estrtura do bco ddos
-            
+            - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql  # inicializa a estrtura do bco ddos
+        environment:
+            - POSTGRES_HOST_AUTH_METHOD=trust
+     frontend:
+        image:nginx:1.13
+        volumes:
+            #site
+            -./web:/usr/share/nginx/html
+        ports:
+            -80:80       
