@@ -12,10 +12,10 @@ services:
             - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql  # inicializa a estrtura do bco ddos
         environment:
             - POSTGRES_HOST_AUTH_METHOD=trust
-     frontend:
-        image:nginx:1.13
+    frontend:
+        image: nginx:1.13
         volumes:
-            #site
-            -./web:/usr/share/nginx/html
+             # Site
+             - ./web:/usr/share/nginx/html/
         ports:
-            -80:80       
+            - 80:80       
